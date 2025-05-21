@@ -15,94 +15,143 @@ This document provides a complete overview of the `config.yml` file used to conf
 ## Options
 
 ### Debug
+
 ```yaml
 debug: false
-```
-Enables or disables debug mode. Use `true` to enable detailed logging for troubleshooting.
+````
+
+Enables or disables debug mode. Set to `true` to enable detailed logging for troubleshooting.
 
 ---
 
 ### Secret
+
 ```yaml
 secret: "SECRET HERE"
 ```
-A secret key used internally by the plugin. Keep this value confidential.
+
+A secret key used internally by the plugin. Keep this value private.
+:::note
+Currently not used.
+:::
 
 ---
 
 ### Locale
+
 ```yaml
 locale: "en_US"
 ```
-Sets the plugin language. Use locale codes such as `en_US`, `fr_FR`, etc.
 
+Sets the plugin language. Use valid locale codes (e.g., `en_US`, `fr_FR`).
+:::danger
+Will be removed in a future release.
+:::
 ---
 
 ### Load Delay
+
 ```yaml
 load delay: 5
 ```
 
-**⚠️ WARNING:** Only change this if you're experiencing issues with voidchests disappearing after a restart.
+Delays plugin data loading (voidchests, player data, etc.) to ensure all worlds are fully loaded.
 
-This option defines the delay (in seconds) before the plugin loads data like voidchests and player data. This ensures that all worlds are fully loaded before voidchests are initialized.
+:::info
+The delay in **ticks** between plugin data loading and the first interaction with the plugin.
+:::
+:::tip
 
-- Recommended: between `1` and `10`.
-- Any value `< 1` disables the delay (not recommended).
+* Recommended range: `1` to `10`
+* Setting `< 1` disables the delay (not recommended)
+  :::
 
 ---
 
+### Save Interval
+
+```yaml
+save interval: 20
+```
+
+:::info
+The interval in **seconds** between automatic saves of player and voidchest data. Reduces performance overhead by
+batching disk writes.
+:::
+:::danger
+**Note:** Data changes made within the interval are not saved until the next scheduled save. If the server crashes
+before that, data may be lost.
+:::
+---
+
 ### Experimental Features
+
 ```yaml
 experimental features: false
 ```
-Enable or disable experimental features. Use with caution.
+
+Enable or disable experimental plugin features.
 
 ---
 
 ### Metrics
+
 ```yaml
 metrics: true
 ```
-Toggle anonymous plugin usage metrics reporting.
+
+Toggles anonymous usage metrics reporting.
 
 ---
 
 ### Discord Integration
+
 ```yaml
 discord: false
 ```
-Enables Discord integration if applicable.
 
+Enable integration with Discord, if supported.
+:::note
+Currently not used.
+:::
 ---
 
 ### Updater
+
 ```yaml
 updater:
   enabled: true
 ```
-Controls automatic update checks.
+
+Enables automatic update checks for the plugin.
 
 ---
 
-## Commands
+### Commands
+
 ```yaml
 commands:
   voidchest: true
   voidchest admin: true
 ```
-Enable or disable individual plugin commands.
+
+Enable or disable specific plugin commands.
 
 ---
 
 ## Database Configuration
 
-Select the database backend and configure connection settings.
+Defines the storage backend for plugin data.
 
 ```yaml
 database:
-  type: "File" # File, SQLite, MySQL, PostgreSQL, MongoDB
+  type: "File" # Options: File, SQLite, MySQL, PostgreSQL, MongoDB
 ```
+
+:::warning
+SQLite and remote databases are currently disabled due to data corruption.
+The code needs refactoring.
+:::
 
 <Tabs>
 <TabItem value="SQL">
@@ -144,18 +193,26 @@ MongoDB:
 time format:
   second: second
   seconds: seconds
-  ...
+  minute: minute
+  minutes: minutes
+  hour: hour
+  hours: hours
+  day: day
+  days: days
+  invalid: Invalid
 ```
 
-Customizes the time units used in messages and interfaces.
+Customize how time units are displayed in messages and GUIs.
 
 ---
 
 ## Money Format
+
 ```yaml
 money format: "##.####"
 ```
-Controls how currency values are displayed.
+
+Define the numeric format for currency values.
 
 ---
 
@@ -168,65 +225,110 @@ economy:
   payout: "Vault"
 ```
 
-Supported options: `Vault`, `TheNewEconomy`, `VoidChest`, `Custom`
+Supported values: `Vault`, `TheNewEconomy`, `VoidChest`, `Custom`
+
+> `VoidChest` supports EXP only. Use `Custom` for advanced integrations.
 
 ---
 
 ### VoidChest Economy Mode
+
 ```yaml
 void chest economy mode: "EXP"
 ```
 
-- `EXP`: Use experience points
-- `LEVELS`: Use player levels
+Defines how EXP is used in the internal economy.
+:::tip
+
+* `EXP`: Raw experience points
+* `LEVELS`: Player levels
+  :::
 
 ---
 
 ## Stacker Plugin Support
+
 ```yaml
 stacker: "None"
 ```
-Supported: `WildStacker`, `UltimateStacker`, `SpaceStacker`, etc.
+
+Integrates with stacker plugins
+:::info
+Valid values:
+`None` 
+`WildStacker` 
+`SpaceStacker` 
+`RoseStacker`
+`zItemStacker`
+`CloudSpawners`
+
+:::
 
 ---
 
 ## Bank Plugin Support
+
 ```yaml
 bank: "None"
 bank tnt: "None"
 ```
-Supported: `SuperiorSkyblock2`, `SaberFactions`, `RoyaleEconomy`, etc.
 
+Supports various bank plugins. Use `Custom` for manual implementations.
+:::info
+Valid values:
+`None`
+`SuperiorSkyblock2`
+`FabledSkyBlock`
+`SaberFactions`
+`MysqlEconomyBank`
+`RoyaleEconomy`
+`Custom`
+:::
 ---
 
 ## Holograms
+
 ```yaml
 hologram:
   plugin: "None"
   update interval: 20
 ```
-Supports: `HolographicDisplays`, `CMI`, `DecentHolograms`, etc.
+Updates holograms every `update interval` ticks.
 
+:::info
+Valid values:
+`None`
+`HolographicDisplays`
+`Holograms`
+`CMI`
+`DecentHolograms`
+`FancyHolograms`
+:::
 ---
 
 ## Item Filtering
 
 ### Ignore Item Meta
+
 ```yaml
 ignore item meta: true
 ```
-If true, item meta (like enchantments/lore) is ignored during filtering.
+
+If true, ignores enchantments, custom names, and other item metadata during filtering.
 
 ### Filter Mode
+
 ```yaml
 filter mode: "ALLOW"
 ```
-- `ALLOW`: Only listed items are allowed
-- `DENY`: Listed items are blocked
-
+:::tip
+* `ALLOW`: Only items on the filter list are allowed.
+* `DENY`: Items on the list are blocked.
+:::
 ---
 
 ## Chunk See Feature
+
 ```yaml
 chunk see:
   Y central: 0
@@ -236,11 +338,13 @@ chunk see:
     type: "VILLAGER_HAPPY"
     interval: 20
 ```
-Visual effect for chunk boundaries, useful for debugging or setup.
+
+Visual effect to show chunk boundaries—primarily for admin/debug use.
 
 ---
 
 ## Sell Messages
+
 ```yaml
 sell message:
   enabled: false
@@ -250,10 +354,12 @@ sell message:
     message delay: 50
 ```
 
-Controls whether sell messages appear in chat and when players join.
+Controls the display of sell messages in chat, including when players rejoin.
 
 ---
 
 ## Final Notes
 
-Be sure to restart or reload the plugin after modifying the config file. Incorrect configuration may result in plugin errors or undesired behavior.
+* Always restart or reload the plugin (`./vcadmin reload`) after modifying `config.yml`.
+* Incorrect values can cause startup errors or unintended behavior.
+* Use default settings unless you're confident in the changes or a developer has advised you to do so.
