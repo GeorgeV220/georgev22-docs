@@ -1,0 +1,119 @@
+---
+description: VoidChest permissions
+id: permissions
+title: Permissions
+sidebar_label: Permissions
+sidebar_position: 10
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="600" label="6.X">
+
+| Permission Node                      | Description                                                                                                      |
+|--------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| `voidchest.admin.help`               | Access to `/vcadmin help` command                                                                               |
+| `voidchest.admin.reload`             | Reload configs with `/vcadmin reload`                                                                            |
+| `voidchest.admin.list`               | View all players' VoidChests via `/vcadmin list`                                                                |
+| `voidchest.admin.boost`              | Apply boosts with `/vcadmin boost`                                                                              |
+| `voidchest.admin.developer`          | Developer tools via `/vcadmin mode`                                                                             |
+| `voidchest.admin.give`               | Give VoidChests with `/vcadmin give`                                                                             |
+| `voidchest.admin.filters`            | Edit system filters via `/vcadmin filters`                                                                      |
+| `voidchest.admin.shop`               | Modify shop with `/vcadmin shop`                                                                                |
+| `voidchest.help`                     | Access `/vc help` command                                                                                       |
+| `voidchest.list`                     | Open VoidChest GUI with `/vc list`                                                                              |
+| `voidchest.ignore`                   | Toggle sell messages via `/vc toggle` or `/vc ignore`                                                           |
+| `voidchest.locate`                   | Find VoidChests with `/vc locate`                                                                               |
+| `voidchest.locate.others`            | Locate others' VoidChests                                                                                       |
+| `voidchest.chunk`                    | View chunk borders with `/vc chunk` or `/vc boundingbox`                                                       |
+| `voidchest.stats`                    | View personal stats via `/vc stats`                                                                             |
+| `voidchest.stats.other`              | View others' stats with `/vc stats [player]`                                                                    |
+| `voidchest.filters`                | Manage filters                                                                                        |     |
+| `voidchest.filters.others`         | Edit others' filters                                                                                         |     |
+| `voidchest.link`                     | Link containers via `/vc link`                                                                                  |
+| `voidchest.link.others`              | Link to others' VoidChests                                                                                      |
+| `voidchest.links`                    | List links with `/vc lists`                                                                                     |
+| `voidchest.links.others`             | View others' links                                                                                              |
+| `voidchest.interact-other`           | Interact with others' VoidChests                                                                                |
+| `voidchest.creative.bypass`          | Bypass creative mode restrictions                                                                               |
+| `voidchest.break.<voidchest>`        | Break specific VoidChest type                                                                                   |
+| `voidchest.break.*`                  | Break all VoidChest types                                                                                       |
+| `voidchest.place.<voidchest>`        | Place specific VoidChest type                                                                                   |
+| `voidchest.place.*`                  | Place any VoidChest type                                                                                        |
+| `voidchest.limit.<limit_type>`       | Bypass placement limits for specific type                                                                       |
+| `voidchest.limit.*`                  | Bypass all placement limits                                                                                     |
+| `voidchest.break-other.bypass`       | Break others' VoidChests                                                                                        |
+
+</TabItem>
+<TabItem value="530+" label="5.3.0">
+
+| Permission Node                      | Description                                                                                                      |
+|--------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| `voidchest.admin.help`               | Access to `/vcadmin help` command                                                                               |
+| `voidchest.admin.reload`             | Reload configs with `/vcadmin reload`                                                                            |
+| `voidchest.admin.list`               | View all players' VoidChests via `/vcadmin list`                                                                |
+| `voidchest.admin.boost`              | Apply boosts with `/vcadmin boost`                                                                              |
+| `voidchest.admin.developer`          | Developer tools via `/vcadmin mode`                                                                             |
+| `voidchest.admin.give`               | Give VoidChests with `/vcadmin give`                                                                             |
+| `voidchest.admin.filters`            | Edit system filters via `/vcadmin filters`                                                                      |
+| `voidchest.admin.shop`               | Modify shop with `/vcadmin shop`                                                                                |
+| `voidchest.help`                     | Access `/vc help` command                                                                                       |
+| `voidchest.list`                     | Open VoidChest GUI with `/vc list`                                                                              |
+| `voidchest.ignore`                   | Toggle sell messages via `/vc toggle` or `/vc ignore`                                                           |
+| `voidchest.locate`                   | Find VoidChests with `/vc locate`                                                                               |
+| `voidchest.locate.others`            | Locate others' VoidChests                                                                                       |
+| `voidchest.chunk`                    | View chunk borders with `/vc chunk` or `/vc boundingbox`                                                       |
+| `voidchest.stats`                    | View personal stats via `/vc stats`                                                                             |
+| `voidchest.stats.other`              | View others' stats with `/vc stats [player]`                                                                    |
+| `voidchest.whitelist`                | Manage whitelist filters                                                                                        |
+| `voidchest.blacklist`                | Manage blacklist filters                                                                                        |
+| `voidchest.whitelist.others`         | Edit others' whitelists                                                                                         |
+| `voidchest.blacklist.others`         | Edit others' blacklists                                                                                         |
+| `voidchest.link`                     | Link containers via `/vc link`                                                                                  |
+| `voidchest.link.others`              | Link to others' VoidChests                                                                                      |
+| `voidchest.links`                    | List links with `/vc lists`                                                                                     |
+| `voidchest.links.others`             | View others' links                                                                                              |
+| `voidchest.interact-other`           | Interact with others' VoidChests                                                                                |
+| `voidchest.creative.bypass`          | Bypass creative mode restrictions                                                                               |
+| `voidchest.break.<voidchest>`        | Break specific VoidChest type                                                                                   |
+| `voidchest.break.*`                  | Break all VoidChest types                                                                                       |
+| `voidchest.place.<voidchest>`        | Place specific VoidChest type                                                                                   |
+| `voidchest.place.*`                  | Place any VoidChest type                                                                                        |
+| `voidchest.limit.<limit_type>`       | Bypass placement limits for specific type                                                                       |
+| `voidchest.limit.*`                  | Bypass all placement limits                                                                                     |
+| `voidchest.break-other.bypass`       | Break others' VoidChests                                                                                        |
+
+</TabItem>
+<TabItem value="pre530" label="Pre-5.3.0">
+
+| Permission Node                      | Description                                                                                                      |
+|--------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| `voidchest.developer`                | Developer features access                                                                                       |
+| `voidchest.interact-other`           | Interact with others' VoidChests                                                                                |
+| `voidchest.chunk`                    | Chunk command access                                                                                            |
+| `voidchest.give`                     | Give VoidChests command                                                                                         |
+| `voidchest.boost`                    | Apply boosts command                                                                                            |
+| `voidchest.help`                     | Help command access                                                                                             |
+| `voidchest.list`                     | List command access                                                                                             |
+| `voidchest.reload`                   | Reload configs command                                                                                          |
+| `voidchest.stats`                    | View personal stats                                                                                             |
+| `voidchest.stats.other`              | View others' stats                                                                                              |
+| `voidchest.toggle/ignore`            | Toggle features/ignore settings                                                                                 |
+| `voidchest.locate`                   | Locate VoidChests command                                                                                       |
+| `voidchest.creative.bypass`          | Bypass creative restrictions                                                                                    |
+| `voidchest.break.<voidchest>`        | Break specific VoidChest type                                                                                   |
+| `voidchest.break.*`                  | Break all VoidChest types                                                                                       |
+| `voidchest.place.<voidchest>`        | Place specific VoidChest type                                                                                   |
+| `voidchest.place.*`                  | Place any VoidChest type                                                                                        |
+| `voidchest.limit.<limit_type>`       | Bypass specific limit                                                                                           |
+| `voidchest.limit.*`                  | Bypass all limits                                                                                               |
+| `voidchest.break-other.bypass`       | Break others' VoidChests                                                                                        |
+| `voidchest.whitelist`                | Manage whitelists                                                                                               |
+| `voidchest.blacklist`                | Manage blacklists                                                                                               |
+| `voidchest.whitelist.others`         | Edit others' whitelists                                                                                         |
+| `voidchest.blacklist.others`         | Edit others' blacklists                                                                                         |
+
+</TabItem>
+</Tabs>

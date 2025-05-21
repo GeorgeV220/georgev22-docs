@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+:root {
+  /* Material Primary Colors */
+  --ifm-color-primary: #6750A4;       /* Primary */
+  --ifm-color-primary-dark: #5E44A1;
+  --ifm-color-primary-darker: #553B9E;
+  --ifm-color-primary-darkest: #4C329B;
+  --ifm-color-primary-light: #7059B2;
+  --ifm-color-primary-lighter: #7963BA;
+  --ifm-color-primary-lightest: #8270C1;
+
+  /* Secondary/Accent Color */
+  --ifm-color-secondary: #ffffff;
+
+  /* Surface Colors */
+  --ifm-background-color: #FEF7FF;
+  --ifm-background-surface-color: #FFFBFE;
+
+  /* Text Colors */
+  --ifm-font-color-base: #1C1B1F;
+  --ifm-font-color-base-inverse: #FFFBFE;
+
+  /* Status Colors */
+  --ifm-color-success: #4CAF50;
+  --ifm-color-info: #2196F3;
+  --ifm-color-warning: #FF9800;
+  --ifm-color-danger: #F44336;
+
+  /* Elevation */
+  --ifm-color-emphasis-200: #E7E0EC;
+  --ifm-color-emphasis-300: #CAC4D0;
+
+  /* Fonts */
+  --ifm-font-family-base: 'Roboto', system-ui, -apple-system, sans-serif;
+}
+
+[data-theme='dark'] {
+  /* Dark Theme Colors */
+  --ifm-color-primary: #81D4FA;        /* Primary */
+  --ifm-color-primary-dark: #6BC9F8;
+  --ifm-color-primary-darker: #55BEF6;
+  --ifm-color-primary-darkest: #3FB3F4;
+  --ifm-color-primary-light: #97DFFC;
+  --ifm-color-primary-lighter: #ADEAFF;
+  --ifm-color-primary-lightest: #C3F5FF;
+
+  /* Surface Colors */
+  --ifm-background-color: #141218;
+  --ifm-background-surface-color: #1D1B20;
+
+  /* Text Colors */
+  --ifm-font-color-base: #E6E1E5;
+
+  /* Elevation */
+  --ifm-color-emphasis-200: #36343B;
+  --ifm-color-emphasis-300: #4A4850;
+}

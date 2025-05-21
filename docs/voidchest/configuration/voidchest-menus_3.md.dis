@@ -1,0 +1,254 @@
+---
+id: voidchest-menu-configuration
+title: VoidChest Menu Configuration
+sidebar_label: VoidChest Menu
+sidebar_position: 3
+description: Learn how to configure the VoidChest menu.
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# VoidChest Inventory Configuration
+
+## GUI Action Descriptions
+
+Below is a list of GUI item actions and what each one does:
+
+- **`TOGGLE_AUTO_SELL`**
+    - Toggles the *Auto Sell* ability on or off for the VoidChest.
+    - Saves the updated state.
+
+- **`TOGGLE_CHUNK_COLLECTOR`**
+    - Toggles the *Chunk Collector* ability, which allows the chest to collect drops from the chunk.
+    - Saves the updated state.
+
+- **`TOGGLE_PURGE`**
+    - Toggles the *Purge Invalid Items* ability, which removes items that are considered invalid.
+    - Saves the updated state.
+
+- **`TOGGLE_HOLOGRAM`**
+    - Toggles the *Hologram* display above the VoidChest.
+    - Saves the updated state and updates the hologram visuals.
+
+- **`TOGGLE_BANK`**
+    - Toggles the *Bank* feature, which transfers the income from the VoidChest to the player's bank.
+    - Saves the updated state.
+
+- **`TOGGLE_TRANSFER_NON_SELLABLES`**
+    - Toggles whether *non-sellable* items should be collected and stored in the VoidChest. (Disable purge)
+    - Saves the updated state.
+
+- **`ADD_CHARGE`**
+    - Adds time-based charge to the VoidChest if possible.
+    - Deducts the appropriate amount from the player's balance.
+    - Notifies the player of success or failure (e.g., insufficient funds or maxed out).
+
+- **`OPEN_CONTAINER`** / **`OPEN_CHEST`**
+    - Opens the inventory (container) of the VoidChest for the player.
+    - Does nothing if the inventory is `null`.
+
+- **`EXIT`**
+    - Closes the GUI for the player.
+
+- **`OPEN_FILTERS`**
+    - Opens the *Filters* GUI, allowing the player to configure item filters for the VoidChest.
+
+- **`UPGRADE`** / **`OPEN_UPGRADES`**
+    - Opens the *Upgrades* GUI, letting the player manage and apply upgrades to the VoidChest.
+
+<Tabs>
+<TabItem value="overview" label="Overview">
+
+## Core Configuration
+```yaml
+name: "&a&l%voidchest% VoidChest Inventory"
+size: 54
+animation:
+  enabled: true
+```
+- **Dynamic Title**: Uses `%voidchest%` placeholder for chest name
+- **Standard Size**: 6-row inventory (54 slots)
+- **Animations**: Global wave animation with color gradients
+
+</TabItem>
+
+<TabItem value="features" label="Key Features">
+
+## Main Functional Items
+
+<Tabs>
+<TabItem value="auto-sell" label="Auto Sell">
+
+**Slot 11** (GOLD_INGOT)
+```yaml
+action: TOGGLE_AUTO_SELL
+lores:
+  - "Status %status_auto_sell%"
+  - "Click to &a%!status_auto_sell%"
+```
+- Toggles automatic selling of contents
+- Status shows Enabled/Disabled state
+
+</TabItem>
+<TabItem value="chunk-collect" label="Chunk Collector">
+
+**Slot 13** (MAGMA_CREAM)
+```yaml
+action: TOGGLE_CHUNK_COLLECTOR
+lores:
+  - "Collect items in chunk"
+  - "Status %status_chunk_collector%"
+```
+- Controls item collection within chunk
+
+</TabItem>
+<TabItem value="purge" label="Item Purge">
+
+**Slot 15** (ENDER_EYE)
+```yaml
+action: TOGGLE_PURGE 
+lores:
+  - "Delete non-sellables"
+  - "Status %status_purge%"
+```
+- Manages automatic deletion of unsellable items
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+
+<TabItem value="management" label="Management">
+
+## Chest Controls
+
+<Tabs>
+<TabItem value="upgrades" label="Upgrades">
+
+**Slot 18** (FEATHER)
+```yaml
+action: UPGRADE
+lores:
+  - "Open upgrades menu"
+```
+- Accesses tiered upgrades system
+
+</TabItem>
+<TabItem value="inventory" label="Chest Access">
+
+**Slot 31** (CHEST)
+```yaml
+action: OPEN_CHEST
+lores:
+  - "{( Click to open )}"
+```
+- Direct access to physical inventory
+
+</TabItem>
+<TabItem value="hologram" label="Hologram">
+
+**Slot 22** (ARMOR_STAND)
+```yaml
+action: TOGGLE_HOLOGRAM
+lores:
+  - "Status: %status_hologram%"
+```
+- Toggles informational hologram display
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+
+<TabItem value="economy" label="Economy">
+
+## Financial Controls
+
+<Tabs>
+<TabItem value="banking" label="Banking">
+
+**Slot 33** (POTION)
+```yaml
+action: TOGGLE_BANK
+lores:
+  - "Money destination: %status_bank%"
+```
+- Toggles between personal/bank account
+
+</TabItem>
+<TabItem value="charges" label="Charges">
+
+**Slot 25** (LAVA_BUCKET)
+```yaml
+action: ADD_CHARGE
+lores:
+  - "Current Charge: &e%charge%"
+  - "Price: &e$%price%"
+```
+- Adds 1-hour operational charge
+- Shows renewal economics
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+
+<TabItem value="stats" label="Statistics">
+
+## Performance Tracking (Slot 45)
+```yaml
+item: BOOK
+lores:
+  - 'Owner: %owner%'
+  - 'Money made: $%money%'
+  - 'Items sold: %items_sold%'
+  - 'Items purged: %items_purged%'
+```
+- Tracks 7 key performance metrics
+- Uses gradient separators
+- Non-interactive display
+
+</TabItem>
+
+<TabItem value="exit" label="Exit Button">
+
+## Animated Close (Slot 49)
+```yaml
+item: PLAYER_HEAD
+skull property: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7..."
+action: EXIT
+animation: "wave"
+colors:
+  - "#48D1CC"
+  - "#FF1493"
+```
+- Animated red X icon
+- Color-shifting effect
+- Closes interface without saving
+
+</TabItem>
+</Tabs>
+
+## Dynamic Placeholders
+
+| Placeholder   | Description     | Example Output      |
+|---------------|-----------------|---------------------|
+| `%voidchest%` | Chest name/tier | "Premium VoidChest" |
+| `%status_*%`  | Feature state   | "Enabled"           |
+| `%!status_*%` | Opposite state  | "Disable"           |
+| `%charge%`    | Remaining time  | "02:30:00"          |
+| `%money%`     | Earnings        | "12,450.00"         |
+
+## Animation System
+```yaml
+animation: "wave"
+colors:
+  - "#F3F8FA"
+  - "#1E4356"
+```
+- **Wave Effect**: Smooth color transition
+- **5-Color Gradients**: Predefined palettes
+- **Global Toggle**: Enabled/disabled in root config
+
+> 💡 Pro Tip: Create type-specific variants by copying to `premium.yml` or `god.yml` and modifying slot positions/items
