@@ -9,6 +9,9 @@ const config: Config = {
 
   url: 'https://docs.georgev22.com/',
   baseUrl: '/',
+  projectName: 'georgev220.github.io',
+  organizationName: 'GeorgeV220',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
