@@ -255,9 +255,9 @@ stacker: "None"
 Integrates with stacker plugins
 :::info
 Valid values:
-`None` 
-`WildStacker` 
-`SpaceStacker` 
+`None`
+`WildStacker`
+`SpaceStacker`
 `RoseStacker`
 `zItemStacker`
 `CloudSpawners`
@@ -291,10 +291,14 @@ Valid values:
 ```yaml
 hologram:
   plugin: "None"
-  update interval: 20
+  update interval: 1
 ```
-Updates holograms every `update interval` ticks.
 
+Updates holograms every `update interval` **seconds**.
+
+:::tip
+The interval must be at least 1 second.
+:::
 :::info
 Valid values:
 `None`
@@ -321,10 +325,14 @@ If true, ignores enchantments, custom names, and other item metadata during filt
 ```yaml
 filter mode: "ALLOW"
 ```
+
 :::tip
+
 * `ALLOW`: Only items on the filter list are allowed.
 * `DENY`: Items on the list are blocked.
+
 :::
+
 ---
 
 ## Chunk See Feature
@@ -355,6 +363,10 @@ sell message:
 ```
 
 Controls the display of sell messages in chat, including when players rejoin.
+
+:::tip
+The interval is in **seconds**.
+:::
 
 ---
 
