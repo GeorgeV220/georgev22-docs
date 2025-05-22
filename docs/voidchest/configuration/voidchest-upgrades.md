@@ -1,5 +1,6 @@
 ---
 sidebar_label: Upgrades
+id: voidchest-upgrades
 title: Upgrades
 sidebar_position: 5
 ---

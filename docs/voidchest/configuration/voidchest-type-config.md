@@ -1,5 +1,5 @@
 ---
-id: voidchest-default-config
+id: voidchest-type-config
 title: VoidChest Type Configuration
 sidebar_label: VoidChest Type (default.yml)
 sidebar_position: 2

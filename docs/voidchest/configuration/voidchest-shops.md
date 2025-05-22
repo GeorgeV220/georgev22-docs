@@ -1,5 +1,6 @@
 ---
 sidebar_label: Shops
+id: voidchest-shops
 title: Shops
 sidebar_position: 4
 ---
